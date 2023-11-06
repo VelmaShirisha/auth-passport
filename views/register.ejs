@@ -1,5 +1,17 @@
 <%- include("partials/header.ejs") %>
 
+<% if (messages.error) { %>
+  <div class="alert alert-danger">
+    <%= messages.error %>
+  </div>
+<% } %>
+
+<% if (messages.success) { %>
+  <div class="alert alert-success">
+    <%= messages.success %>
+  </div>
+<% } %>
+
 <div class="row page_container position-absolute top-50 translate-middle-y w-100 mx-0">
   
   <div class="col-md-8 m-auto">
@@ -30,8 +42,6 @@
     </div>
   </div>
 </div>
-
-
 
 
 <%- include("partials/footer.ejs") %>

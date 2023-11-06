@@ -1,0 +1,49 @@
+<%- include("partials/header.ejs") %> <%- include("partials/navbar.ejs") %>
+<link rel="stylesheet" href="/css/bootstrap-social.css" />
+<link rel="stylesheet" href="/css/style.css" />
+
+<div class="row page_container">
+  <div class="col-md-10 m-auto">
+    <form action="/update/<%= quote._id %>?_method=PUT" method="POST">
+        <input type="hidden" name="_method" value="put">
+      <h3>Update quote.</h3>
+      <div class="mb-3">
+        <label for="create-quote" class="form-label">Quote</label>
+        <textarea
+          type="text"
+          name="quote"
+          class="form-control"
+          id="create-quote"
+          cols="30"
+          rows="10"
+          required
+          maxlength="100"
+        >
+<%= quote.quote %></textarea
+        >
+        <div id="emailHelp" class="form-text text-danger">
+          Max 100 characters.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="color-input" class="form-label"
+          >Choose background color for your quote.</label
+        >
+        <input
+          type="color"
+          class="form-control form-control-color"
+          id="color-input"
+          name="bgColor"
+          title="Choose your color"
+          value="<%= bgColor %>"
+        />
+      </div>
+      <button type="submit" class="btn purple__btn">Update</button>
+    </form>
+    <script>
+        console.log("quote._id:", "<%= quote._id %>");
+    </script>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") %>

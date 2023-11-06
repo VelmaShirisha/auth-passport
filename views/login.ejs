@@ -1,10 +1,17 @@
 <%- include("partials/header.ejs") %>
+<link rel="stylesheet" href="/css/bootstrap-social.css" />
+<link rel="stylesheet" href="/css/style.css" />
 
 <div class="row page_container position-absolute top-50 translate-middle-y w-100 mx-0">
   
   <div class="col-md-8">
     <form action="/auth/login" method="post">
       <h3 class="mb-4">Login</h3>
+      <% if (typeof error !== 'undefined') { %>
+        <div class="alert alert-danger">
+          <%= error %>
+        </div>
+      <% } %>
       <div class="mb-3">
         <label for="login-email" class="form-label">Email address</label>
         <input type="email" name="username" class="form-control" id="login-email" aria-describedby="emailHelp" required>
@@ -29,9 +36,6 @@
 
 
 </div>
-
-
-  
 
 
 <%- include("partials/footer.ejs") %>
